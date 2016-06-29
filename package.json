@@ -1,0 +1,16 @@
+{
+  "name": "postman-collection-prefixer",
+  "version": "0.0.1",
+  "description": "prefix your postman collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felix Itzenplitz",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^2.3.1",
+    "left-pad": "^1.1.0",
+    "yargs": "^4.7.1"
+  }
+}
