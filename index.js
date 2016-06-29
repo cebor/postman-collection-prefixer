@@ -1,12 +1,21 @@
+#!/usr/bin/env node
+process.title = 'pcp'
+
 var argv = require('yargs')
     .usage('Usage: $0 -p [str] file.json')
     .demand(['p', 1])
     .argv;
+var transformer = require('postman-collection-transformer');
 var pad = require('left-pad');
-var jsonfile = require('jsonfile')
+var jsonfile = require('jsonfile');
 
 var prefix = argv.p;
-var obj = require('./' + argv._[0]);
+var collection = require('./' + argv._[0]);
+
+var options = {
+    inputVersion: '1.0.0',
+    outputVersion: '2.0.0'
+};
 
 function addNum(str, num) {
   return prefix + pad(num, 2, 0) + ' - ' + str;
@@ -16,24 +25,45 @@ function addNumPoint(str, num, point) {
   return prefix + pad(num, 2, 0) + '.' + pad(point, 2, 0) + ' - ' + str;
 }
 
-obj.info.name = prefix + ' - ' +obj.info.name
-console.log(obj.info.name);
+function prefixIt(collection) {
+    collection.info.name = prefix + ' - ' + collection.info.name
+    console.log(collection.info.name);
 
-var i = 1;
-for (let item of obj.item) {
-    item.name = addNum(item.name, i++);
-    console.log(item.name);
-    var j = 1;
-    if (item.item) {
-      for (let item2 of item.item) {
-        item2.name = addNumPoint(item2.name, i, j++);
-        console.log(item2.name);
-      }
+    var i = 1;
+    for (let item of collection.item) {
+        item.name = addNum(item.name, i++);
+        console.log(item.name);
+        var j = 1;
+        if (item.item) {
+            for (let item2 of item.item) {
+                item2.name = addNumPoint(item2.name, i, j++);
+                console.log(item2.name);
+            }
+        }
     }
 }
 
-jsonfile.writeFile('./_' + argv._[0], obj, {spaces: 2}, function (err) {
-  if (err) {
-    console.error(err)
-  }
+transformer.convert(collection, options, function (error, result) {
+    if (error) {
+        return console.error(error);
+    }
+
+    prefixIt(result);
+
+    var options = {
+        inputVersion: '2.0.0',
+        outputVersion: '1.0.0'
+    };
+
+    transformer.convert(result, options, function (error2, result2) {
+        if (error) {
+            return console.error(error);
+        }
+
+        jsonfile.writeFile('./' + argv._[0], result2, {spaces: 2}, function (err) {
+            if (err) {
+                console.error(err)
+            }
+        });
+    });
 });
