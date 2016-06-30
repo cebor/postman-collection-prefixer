@@ -12,16 +12,19 @@ var pad = require('left-pad');
 var jsonfile = require('jsonfile');
 
 function addNum(str, num) {
+    // remove old prefix
     str = str.replace(/^#[A-Z]+[0-9]+\s-\s/, '');
     return prefix + pad(num, 2, 0) + '0' + ' - ' + str;
 }
 
 function addNumPoint(str, num, point) {
+    // remove old prefix
     str = str.replace(/^#[A-Z]+[0-9]+\.[0-9]+\s-\s/, '');
     return prefix + pad(num, 2, 0) + '0' + '.' + pad(point, 2, 0) + '0' + ' - ' + str;
 }
 
 function prefixIt(collection) {
+    // remove old prefix
     collection.info.name = collection.info.name.replace(/^#[A-Z]+\s-\s/, '');
     collection.info.name = prefix + ' - ' + collection.info.name
     console.log(collection.info.name);
@@ -48,6 +51,7 @@ var options = {
     outputVersion: '2.0.0'
 };
 
+// v1 -> v2
 transformer.convert(collection, options, function (error, result) {
     if (error) {
         return console.error(error);
@@ -60,11 +64,13 @@ transformer.convert(collection, options, function (error, result) {
         outputVersion: '1.0.0'
     };
 
+    // v2 -> v1
     transformer.convert(result, options, function (error2, result2) {
         if (error2) {
             return console.error(error2);
         }
 
+        // write to disk
         jsonfile.writeFile(path.resolve('.', argv._[0]), result2, {spaces: 2}, function (err) {
             if (err) {
                 console.error(err)
