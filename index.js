@@ -31,7 +31,7 @@ function prefixIt(collection) {
 
     var i = 1;
     for (let item of collection.item) {
-        item.name = addNum(item.name, i++);
+        item.name = addNum(item.name, i);
         console.log(item.name);
         if (item.item.length) {
             var j = 1;
@@ -40,6 +40,7 @@ function prefixIt(collection) {
                 console.log(item2.name);
             }
         }
+        i++;
     }
 }
 
