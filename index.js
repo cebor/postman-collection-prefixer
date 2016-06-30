@@ -27,7 +27,7 @@ function prefixIt(collection) {
     for (let item of collection.item) {
         item.name = addNum(item.name, i++);
         console.log(item.name);
-        if (item.item) {
+        if (item.item.length) {
             var j = 1;
             for (let item2 of item.item) {
                 item2.name = addNumPoint(item2.name, i, j++);
