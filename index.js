@@ -11,7 +11,7 @@ var transformer = require('postman-collection-transformer');
 var pad = require('left-pad');
 var jsonfile = require('jsonfile');
 
-var prefix = argv.p;
+var prefix = '#' + argv.p;
 var collection = require(path.resolve('.', argv._[0]));
 
 var options = {
