@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 process.title = 'pcp'
 
+var path = require('path');
+
 var argv = require('yargs')
     .usage('Usage: $0 -p [str] file.json')
     .demand(['p', 1])
@@ -10,7 +12,7 @@ var pad = require('left-pad');
 var jsonfile = require('jsonfile');
 
 var prefix = argv.p;
-var collection = require('./' + argv._[0]);
+var collection = require(path.resolve('.', argv._[0]));
 
 var options = {
     inputVersion: '1.0.0',
@@ -60,7 +62,7 @@ transformer.convert(collection, options, function (error, result) {
             return console.error(error);
         }
 
-        jsonfile.writeFile('./' + argv._[0], result2, {spaces: 2}, function (err) {
+        jsonfile.writeFile(path.resolve('.', argv._[0]), result2, {spaces: 2}, function (err) {
             if (err) {
                 console.error(err)
             }
