@@ -11,14 +11,6 @@ var transformer = require('postman-collection-transformer');
 var pad = require('left-pad');
 var jsonfile = require('jsonfile');
 
-var prefix = '#' + argv.p;
-var collection = require(path.resolve('.', argv._[0]));
-
-var options = {
-    inputVersion: '1.0.0',
-    outputVersion: '2.0.0'
-};
-
 function addNum(str, num) {
   return prefix + pad(num, 2, 0) + ' - ' + str;
 }
@@ -35,8 +27,8 @@ function prefixIt(collection) {
     for (let item of collection.item) {
         item.name = addNum(item.name, i++);
         console.log(item.name);
-        var j = 1;
         if (item.item) {
+            var j = 1;
             for (let item2 of item.item) {
                 item2.name = addNumPoint(item2.name, i, j++);
                 console.log(item2.name);
@@ -44,6 +36,14 @@ function prefixIt(collection) {
         }
     }
 }
+
+var prefix = '#' + argv.p;
+var collection = require(path.resolve('.', argv._[0]));
+
+var options = {
+    inputVersion: '1.0.0',
+    outputVersion: '2.0.0'
+};
 
 transformer.convert(collection, options, function (error, result) {
     if (error) {
@@ -58,8 +58,8 @@ transformer.convert(collection, options, function (error, result) {
     };
 
     transformer.convert(result, options, function (error2, result2) {
-        if (error) {
-            return console.error(error);
+        if (error2) {
+            return console.error(error2);
         }
 
         jsonfile.writeFile(path.resolve('.', argv._[0]), result2, {spaces: 2}, function (err) {
