@@ -4,22 +4,25 @@ process.title = 'pcp'
 var path = require('path');
 
 var argv = require('yargs')
-    .usage('Usage: $0 -p [str] file.json')
-    .demand(['p', 1])
-    .argv;
+        .usage('Usage: $0 -p [str] file.json')
+        .demand(['p', 1])
+        .argv;
 var transformer = require('postman-collection-transformer');
 var pad = require('left-pad');
 var jsonfile = require('jsonfile');
 
 function addNum(str, num) {
-  return prefix + pad(num, 2, 0) + ' - ' + str;
+    str = str.replace(/^#[A-Z]+[0-9]+\s-\s/, '');
+    return prefix + pad(num, 2, 0) + '0' + ' - ' + str;
 }
 
 function addNumPoint(str, num, point) {
-  return prefix + pad(num, 2, 0) + '.' + pad(point, 2, 0) + ' - ' + str;
+    str = str.replace(/^#[A-Z]+[0-9]+\.[0-9]+\s-\s/, '');
+    return prefix + pad(num, 2, 0) + '0' + '.' + pad(point, 2, 0) + '0' + ' - ' + str;
 }
 
 function prefixIt(collection) {
+    collection.info.name = collection.info.name.replace(/^#[A-Z]+\s-\s/, '');
     collection.info.name = prefix + ' - ' + collection.info.name
     console.log(collection.info.name);
 
