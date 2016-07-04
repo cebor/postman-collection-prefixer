@@ -66,7 +66,7 @@ transformer.convert(collection, { inputVersion: '1.0.0', outputVersion: '2.0.0' 
         }
 
         // write to disk
-        jsonfile.writeFile(path.resolve('.', argv._[0]), result2, { spaces: 2 }, function (err) {
+        jsonfile.writeFile(path.resolve('.', argv._[0]), result2, { spaces: '\t' }, function (err) {
             if (err) {
                 console.error(err)
             }
