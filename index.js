@@ -29,7 +29,7 @@ function prefixIt(collection, prevCounters = []) {
     // first level
     if (collection.info) {
         // remove old prefix
-        collection.info.name = collection.info.name.replace(/^#[A-Z]+\s-\s/, '');
+        collection.info.name = collection.info.name.replace(/^#[a-zA-Z0-9]+\s-\s/, '');
         collection.info.name = prefix + ' - ' + collection.info.name
         console.log(collection.info.name);
 
