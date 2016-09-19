@@ -15,6 +15,6 @@
     "jsonfile": "^2.3.1",
     "left-pad": "^1.1.0",
     "postman-collection-transformer": "^1.7.2",
-    "yargs": "^4.7.1"
+    "yargs": "^5.0.0"
   }
 }
