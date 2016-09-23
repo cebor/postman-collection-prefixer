@@ -12,8 +12,8 @@
   "author": "Felix Itzenplitz",
   "license": "MIT",
   "dependencies": {
-    "jsonfile": "^2.3.1",
-    "left-pad": "^1.1.0",
+    "jsonfile": "^2.4.0",
+    "left-pad": "^1.1.1",
     "postman-collection-transformer": "^1.7.5",
     "yargs": "^5.0.0"
   }
