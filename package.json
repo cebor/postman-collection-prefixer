@@ -14,7 +14,7 @@
   "dependencies": {
     "jsonfile": "^2.4.0",
     "left-pad": "^1.1.2",
-    "postman-collection-transformer": "^1.7.5",
+    "postman-collection-transformer": "^1.7.6",
     "yargs": "^5.0.0"
   }
 }
