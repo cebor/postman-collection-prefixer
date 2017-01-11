@@ -3,8 +3,9 @@ process.title = 'pcp'
 
 var argv = require('yargs')
     .usage('Usage: pcp -p [str] file.json')
-    .demand(['p', 1])
+    .demandOption('p')
     .string('p')
+    .demandCommand(1)
     .normalize(1)
     .argv;
 
