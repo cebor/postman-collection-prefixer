@@ -2,11 +2,9 @@
 process.title = 'pcp'
 
 var argv = require('yargs')
-    .usage('Usage: pcp -p [str] file.json')
+    .normalize('file')
     .demandOption('p')
     .string('p')
-    .demandCommand(1)
-    .normalize(1)
     .argv;
 
 var pad = require('left-pad');
@@ -67,6 +65,7 @@ function adaptCollection(filePath, adapter) {
         if (error) {
             return console.error(error);
         }
+
 
         // do it
         adapter(result);
