@@ -12,7 +12,7 @@
   "author": "Felix Itzenplitz",
   "license": "MIT",
   "dependencies": {
-    "jsonfile": "^4.0.0",
+    "jsonfile": "^5.0.0",
     "left-pad": "^1.2.0",
     "postman-collection-transformer": "^2.5.1",
     "yargs": "^10.0.3"
