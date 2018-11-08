@@ -40,9 +40,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-commander@2.12.2:
-  version "2.12.2"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
+commander@2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
 
 cross-spawn@^5.0.1:
   version "5.1.0"
@@ -160,9 +160,9 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash@4.17.4:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+lodash@4.17.11:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 lru-cache@^4.0.1:
   version "4.1.1"
@@ -221,15 +221,15 @@ path-key@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
 
-postman-collection-transformer@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/postman-collection-transformer/-/postman-collection-transformer-2.5.1.tgz#317090fa9cce71f4645e2622d9442498838eb97a"
+postman-collection-transformer@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/postman-collection-transformer/-/postman-collection-transformer-3.0.0.tgz#5465f1f9412101d5e4d5d1778c84f3c67452b3c5"
   dependencies:
-    commander "2.12.2"
+    commander "2.19.0"
     inherits "2.0.3"
     intel "1.2.0"
-    lodash "4.17.4"
-    semver "5.4.1"
+    lodash "4.17.11"
+    semver "5.6.0"
     strip-json-comments "2.0.1"
 
 pseudomap@^1.0.2:
@@ -244,9 +244,9 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
-semver@5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+semver@5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
 
 set-blocking@^2.0.0:
   version "2.0.0"
